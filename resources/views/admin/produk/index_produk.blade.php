@@ -43,10 +43,10 @@
 
                 <div class="card-body">
 
+                    <div class="table-responsive">
+                        <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                            aria-describedby="dataTable_info">
 
-                    <div class="table-responsive table mt-2" id="dataTable" role="grid"
-                        aria-describedby="dataTable_info">
-                        <div class="table-responsive">
                             <table class="table my-0" id="dataTable">
                                 <thead>
                                     <tr>
