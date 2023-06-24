@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2023 at 07:07 PM
+-- Generation Time: Jun 24, 2023 at 10:47 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -133,14 +133,6 @@ CREATE TABLE `produks` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `produks`
---
-
-INSERT INTO `produks` (`id`, `nama`, `kode`, `harga_beli`, `harga_jual`, `stok`, `deskripsi`, `gambar`, `kategori_id`, `created_at`, `updated_at`) VALUES
-(9, 'Thinkpad T480s', 't480s', 4000000, 4000000, 10, 'sip', 'public/TL3i8advQcBsMLgJPP9kTDtaZDWujElsDiel954F.png', 1, '2023-06-23 08:54:21', '2023-06-23 08:54:21'),
-(10, 'cat', 'cat6969', 69420, 69420, 666, 'would', 'public/78D93jxFzZ8flotQQr65G0gVccgRw5CB1H3e71Qp.jpg', 1, '2023-06-23 08:56:15', '2023-06-23 08:56:15');
-
 -- --------------------------------------------------------
 
 --
@@ -251,7 +243,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `produks`
 --
 ALTER TABLE `produks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `users`
