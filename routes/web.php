@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 
-Route::prefix('admin')->middleware(['auth', 'cek_role:admin-manager'])->group(function () {
+Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
     Route::resource('/produk', ProdukController::class);
