@@ -43,6 +43,3 @@ Route::prefix('user')->middleware(['auth', 'cek_role:user'])->group(function () 
         return view('user.index');
     })->name('user.index');
 });
-
-Route::get('manager', function () {
-})->name('manager.index');
