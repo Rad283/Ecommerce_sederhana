@@ -52,8 +52,8 @@
                                     <tr>
                                         <th>Nama Barang</th>
                                         <th>kode</th>
-                                        <th>Harga Beli</th>
-                                        <th>Harga Jual</th>
+                                        <th>Harga Beli (RP)</th>
+                                        <th>Harga Jual (RP)</th>
                                         <th>Stok</th>
                                         <th>Kategori</th>
                                         <th>Deskripsi</th>
@@ -68,13 +68,16 @@
                                         <tr>
                                             <td>{{ $produk->nama }}</td>
                                             <td>{{ $produk->kode }}</td>
-                                            <td>RP. {{ $produk->harga_beli }}<br></td>
-                                            <td>RP. {{ $produk->harga_jual }}</td>
+                                            <td>@php
+                                                echo number_format($produk->harga_beli, 0, ',', '.');
+                                            @endphp<br></td>
+                                            <td>@php
+                                                echo number_format($produk->harga_jual, 0, ',', '.');
+                                            @endphp</td>
                                             <td>{{ $produk->stok }}</td>
                                             <td>{{ $produk->kategori->nama_kategori }}</td>
                                             <td>{{ $produk->deskripsi }}</td>
-                                            <td class="text-center"><img
-                                                    src="{{ asset('storage/' . $produk->gambar) }}"
+                                            <td class="text-center"><img src="{{ asset('storage/' . $produk->gambar) }}"
                                                     style="width: 150px;">
                                             </td>
                                             <td class="text-center align-content-around d-flex justify-content-around">
