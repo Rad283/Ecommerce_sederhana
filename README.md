@@ -3,7 +3,7 @@
     <p>Jalankan "composer install","npm install", dan "npm run dev"
     jangan lupa untuk rename ".env.example" menjadi ".env" lalu import database dari folder database</p>
     <h2>Daftar akun</h2>
-    <table>
+<table>
         <tr>
             <th>Email</th>
             <th>Password</th>
