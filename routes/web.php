@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -43,3 +44,15 @@ Route::prefix('user')->middleware(['auth', 'cek_role:user'])->group(function () 
         return view('user.index');
     })->name('user.index');
 });
+
+    Route::group(['middleware' => 'auth'], function () {
+        Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/pesanan', [PesananController::class, 'index']);
+        Route::get('/pesanan/create', [PesananController::class, 'create']);
+        Route::post('/pesanan/store', [PesananController::class, 'store']);
+        Route::get('/pesanan/edit/{id}', [PesananController::class, 'edit']);
+        Route::post('/pesanan/update/{id}', [PesananController::class, 'update']);
+        Route::get('/pesanan/delete/{id}', [PesananController::class, 'destroy']);
+    });
+});
+

@@ -13,7 +13,7 @@
                     href="{{ route('admin.profile') }}"><i class="fas fa-user"></i><span>Profile</span></a></li>
             <li class="nav-item"><a
                     class="nav-link  @if (request()->routeIs('produk.index')) active @endif"href="{{ route('produk.index') }}"><i
-                        class="fas fa-table"></i><span>Produk</span></a><a class="nav-link" href="#"><i
+                        class="fas fa-table"></i><span>Produk</span></a><a class="nav-link" href="{{ url('admin/pesanan') }}"><i
                         class="fas fa-shopping-cart"></i><span>Pesanan</span></a><a class="nav-link" href="#"><i
                         class="fas fa-table"></i><span>Daftar User</span></a>
             </li>
