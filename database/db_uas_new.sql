@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2023 at 02:57 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jul 13, 2023 at 10:20 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_uas`
+-- Database: `testing123`
 --
 
 -- --------------------------------------------------------
@@ -128,16 +128,16 @@ CREATE TABLE `pesanan` (
   `email` varchar(45) NOT NULL,
   `jumlah_pesanan` int(11) NOT NULL,
   `deskripsi` text NOT NULL,
-  `produk_id` bigint(20) UNSIGNED NOT NULL
+  `produk_id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pesanan`
 --
 
-INSERT INTO `pesanan` (`id`, `tanggal`, `nama_pemesan`, `alamat_pemesan`, `no_hp`, `email`, `jumlah_pesanan`, `deskripsi`, `produk_id`) VALUES
-(3, '2023-11-11', 'roza', 'jl', '08', 'manjur@gmail.com', 6, 'ddd', 16),
-(4, '2023-11-11', 'roza', 'jl', '08', 'rozakurniawannur@gmail.com', 9, 'dd', 15);
+INSERT INTO `pesanan` (`id`, `tanggal`, `nama_pemesan`, `alamat_pemesan`, `no_hp`, `email`, `jumlah_pesanan`, `deskripsi`, `produk_id`, `user_id`) VALUES
+(16, '2023-07-14', 'radit', 'jl jalan', '08696969', 'user@gmail.com', 1, 'дадададада', 16, 3);
 
 -- --------------------------------------------------------
 
@@ -164,7 +164,7 @@ CREATE TABLE `produks` (
 --
 
 INSERT INTO `produks` (`id`, `nama`, `kode`, `harga_beli`, `harga_jual`, `stok`, `deskripsi`, `gambar`, `kategori_id`, `created_at`, `updated_at`) VALUES
-(15, 'Es  Teh', '2', 900000, 12000, 10, 'sd', 'public/LK9w1Sa1ZN02wbdzg1uOtIqogPv5XS1PJJBtx77i.jpg', 1, '2023-07-12 06:40:04', '2023-07-12 06:40:04');
+(16, 'Thinkpad T480s', 't480s', 4000000, 4000000, 28, 'lenovo laptop', 'public/RVM71LrIXQkC8ZfzkyVfD20wON9mVkRcfeTp4q2j.jpg', 1, '2023-07-13 13:18:09', '2023-07-13 13:18:09');
 
 -- --------------------------------------------------------
 
@@ -235,7 +235,8 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `pesanan`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `produk_id` (`produk_id`) USING BTREE;
+  ADD KEY `produk_id` (`produk_id`) USING BTREE,
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `produks`
@@ -283,7 +284,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `produks`
