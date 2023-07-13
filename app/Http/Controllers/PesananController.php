@@ -42,8 +42,13 @@ class PesananController extends Controller
         $pesanan->jumlah_pesanan = $request->jumlah_pesanan;
         $pesanan->deskripsi = $request->deskripsi;
         $pesanan->produk_id = $request->produk_id;
+        $pesanan->user_id = $request->user_id;
         $pesanan->save();
-        return redirect('admin/pesanan');
+        if ($request->user()->role == 'user') {
+            return redirect('user');
+        } else {
+            return redirect('admin/pesanan');
+        }
     }
 
     /**

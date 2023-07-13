@@ -8,6 +8,7 @@
     @foreach ($pesanan as $o)
         <form method="post" action="{{ url('admin/pesanan/update/' . $o->id) }}" enctype="multipart/form-data">
             {{ csrf_field() }}
+            <input type="hidden" name="user_id" value="{{ $o->user_id }}">
             <h4 style="text-align: center">Form Edit Pesanan</h4>
             <div class="form-group row">
                 <label for="kode" class="col-4 col-form-label">Tanggal</label>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\DB;
 
 class Pesanan extends Model
@@ -20,7 +21,8 @@ class Pesanan extends Model
         'email',
         'jumlah_pesanan',
         'deskripsi',
-        'produk_id'
+        'produk_id',
+        'user_id'
     ];
 
     public function pesanan()
@@ -35,5 +37,10 @@ class Pesanan extends Model
             ->select('pesanan.*', 'produks.nama as nama_produk')
             ->get();
         return $tampil;
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(user::class);
     }
 }

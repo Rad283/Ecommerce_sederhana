@@ -4,6 +4,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
+use App\Models\produk;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,8 +21,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['produk' => produk::all()]);
 })->name('welcome');
+
+
+Route::get('/detail/{id}', function (string $id) {
+    // return $produk;
+    return view('lp.detailed', ['produk' => produk::find($id)]);
+})->name('detailed');
+
+
+Route::get('/checkout/{id}', function (string $id) {
+    return view('lp.checkout', ['produk' => produk::find($id)]);
+})->name('checkout');
 
 
 Route::middleware('auth')->group(function () {
