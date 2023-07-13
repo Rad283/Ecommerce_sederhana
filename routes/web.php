@@ -55,6 +55,3 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/pesanan/delete/{id}', [PesananController::class, 'destroy']);
     });
 });
-
-Route::get('ipdatea', function ($id) {
-});
