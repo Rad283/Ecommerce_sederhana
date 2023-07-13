@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2023 at 10:47 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Jul 13, 2023 at 02:57 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `laravel_template`
+-- Database: `db_uas`
 --
 
 -- --------------------------------------------------------
@@ -116,6 +116,32 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pesanan`
+--
+
+CREATE TABLE `pesanan` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tanggal` date NOT NULL,
+  `nama_pemesan` varchar(45) NOT NULL,
+  `alamat_pemesan` varchar(45) NOT NULL,
+  `no_hp` varchar(15) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `jumlah_pesanan` int(11) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `produk_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pesanan`
+--
+
+INSERT INTO `pesanan` (`id`, `tanggal`, `nama_pemesan`, `alamat_pemesan`, `no_hp`, `email`, `jumlah_pesanan`, `deskripsi`, `produk_id`) VALUES
+(3, '2023-11-11', 'roza', 'jl', '08', 'manjur@gmail.com', 6, 'ddd', 16),
+(4, '2023-11-11', 'roza', 'jl', '08', 'rozakurniawannur@gmail.com', 9, 'dd', 15);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `produks`
 --
 
@@ -132,6 +158,13 @@ CREATE TABLE `produks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `produks`
+--
+
+INSERT INTO `produks` (`id`, `nama`, `kode`, `harga_beli`, `harga_jual`, `stok`, `deskripsi`, `gambar`, `kategori_id`, `created_at`, `updated_at`) VALUES
+(15, 'Es  Teh', '2', 900000, 12000, 10, 'sd', 'public/LK9w1Sa1ZN02wbdzg1uOtIqogPv5XS1PJJBtx77i.jpg', 1, '2023-07-12 06:40:04', '2023-07-12 06:40:04');
 
 -- --------------------------------------------------------
 
@@ -198,6 +231,13 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `pesanan`
+--
+ALTER TABLE `pesanan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `produk_id` (`produk_id`) USING BTREE;
+
+--
 -- Indexes for table `produks`
 --
 ALTER TABLE `produks`
@@ -240,10 +280,16 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `pesanan`
+--
+ALTER TABLE `pesanan`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `produks`
 --
 ALTER TABLE `produks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `users`
