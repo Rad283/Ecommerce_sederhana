@@ -6,6 +6,8 @@
     </x-slot>
     <form method="post" action="{{ url('admin/pesanan/store') }}" enctype="multipart/form-data">
         {{ csrf_field() }}
+        <input type="hidden" name="user_id"
+        value=" @if (auth()->user() !== null) {{ auth()->user()->id }} @endif">
         <h4 style="text-align: center">Form Tambah Pesanan</h4>
         <div class="form-group row">
             <label for="kode" class="col-4 col-form-label">Tanggal</label>

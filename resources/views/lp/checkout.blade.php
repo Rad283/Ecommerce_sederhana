@@ -34,6 +34,10 @@
                         <form method="POST" action="{{ url('admin/pesanan/store') }}" enctype="multipart/form-data"
                             name="checkout" class="checkout ecommerce-checkout row">
                             {{ csrf_field() }}
+                            <input type="hidden" name="user_id"
+                                value=" @if (auth()->user() !== null) {{ auth()->user()->id }} @endif">
+
+
                             <div class="col-md-8" id="customer_details">
                                 <div>
                                     <h2 class="heading uppercase bottom-line full-grey mb-30">billing address</h2>
