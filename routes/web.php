@@ -45,8 +45,8 @@ Route::prefix('user')->middleware(['auth', 'cek_role:user'])->group(function () 
     })->name('user.index');
 });
 
-    Route::group(['middleware' => 'auth'], function () {
-        Route::prefix('admin')->name('admin.')->group(function () {
+Route::group(['middleware' => 'auth'], function () {
+    Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/pesanan', [PesananController::class, 'index']);
         Route::get('/pesanan/create', [PesananController::class, 'create']);
         Route::post('/pesanan/store', [PesananController::class, 'store']);
@@ -56,3 +56,5 @@ Route::prefix('user')->middleware(['auth', 'cek_role:user'])->group(function () 
     });
 });
 
+Route::get('ipdatea', function ($id) {
+});
