@@ -1,5 +1,14 @@
 @extends('lp.layout.app')
 @section('isi')
+    {{-- add new --}}
+    @if (Session('berhasil'))
+        <script>
+            setTimeout(function() {
+                alert("Berhasil Login");
+            }, 900)
+        </script>
+    @endif
+
     <div class="content-wrapper oh">
 
         <!-- Hero Slider -->

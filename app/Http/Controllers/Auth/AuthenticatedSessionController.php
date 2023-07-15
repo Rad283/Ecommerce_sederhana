@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
         if ($request->user()->role == 'admin' || $request->user()->role == 'manager') {
             return to_route('admin.index');
         } elseif ($request->user()->role == 'user') {
-            return to_route('welcome');
+            return to_route('welcome')->with('berhasil', 'Berhasil Login');;
         }
 
         // return redirect()->intended(RouteServiceProvider::HOME);
