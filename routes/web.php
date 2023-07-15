@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Pesanan;
 use App\Models\produk;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -53,8 +54,8 @@ Route::prefix('admin')->group(function () {
 
 
 Route::prefix('user')->middleware(['auth', 'cek_role:user'])->group(function () {
-    Route::get('/', function () {
-        return view('user.index');
+    Route::get('/', function (Request $request) {
+        return view('user.index', ['pesanans' => Pesanan::with('produk')->where('user_id', '=', $request->user()->id)->get()]);
     })->name('user.index');
 });
 
