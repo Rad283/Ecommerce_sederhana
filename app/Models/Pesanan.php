@@ -43,4 +43,9 @@ class Pesanan extends Model
     {
         return $this->belongsTo(user::class);
     }
+
+    public function produk(): BelongsTo
+    {
+        return $this->belongsTo(produk::class);
+    }
 }
