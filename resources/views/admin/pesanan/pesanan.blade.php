@@ -14,50 +14,52 @@
             Data Pesanan
         </div>
         <div class="card-body">
-            <table id="datatablesSimple">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Tanggal</th>
-                        <th>Nama Pemesan</th>
-                        <th>Alamat Pemesan</th>
-                        <th>No HP</th>
-                        <th>Email</th>
-                        <th>Jumlah Pesanan</th>
-                        <th>Deskripsi</th>
-                        <th>Nama Produk</th>
-
-                        @if (Auth::user()->role == 'admin')
-                            <th>Action</th>
-                        @endif
-                    </tr>
-                </thead>
-                <tbody>
-                    @php
-                        $no = 1;
-                    @endphp
-                    @foreach ($pesanan as $order)
+            <div class="table-responsive">
+                <table class="table my-0 table-bordered " id="dataTable">
+                    <thead>
                         <tr>
-                            <td>{{ $no }}</td>
-                            <td>{{ $order->tanggal }}</td>
-                            <td>{{ $order->nama_pemesan }}</td>
-                            <td>{{ $order->alamat_pemesan }}</td>
-                            <td>{{ $order->no_hp }}</td>
-                            <td>{{ $order->email }}</td>
-                            <td>{{ $order->jumlah_pesanan }}</td>
-                            <td>{{ $order->deskripsi }}</td>
-                            <td>{{ $order->nama_produk }}</td>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Nama Pemesan</th>
+                            <th>Alamat Pemesan</th>
+                            <th>No HP</th>
+                            <th>Email</th>
+                            <th>Jumlah Pesanan</th>
+                            <th>Deskripsi</th>
+                            <th>Nama Produk</th>
+
                             @if (Auth::user()->role == 'admin')
-                                <td><a href="{{ url('admin/pesanan/edit/' . $order->id) }}"
-                                        class="btn btn-success">Edit</a></td>
-                                <td><a href="{{ url('admin/pesanan/delete/' . $order->id) }}"
-                                        class="btn btn-danger">Delete</a></td>
+                                <th colspan="2">Action</th>
                             @endif
                         </tr>
+                    </thead>
+                    <tbody>
                         @php
-                            $no++;
+                            $no = 1;
                         @endphp
-                    @endforeach
-                </tbody>
-            </table>
+                        @foreach ($pesanan as $order)
+                            <tr>
+                                <td>{{ $no }}</td>
+                                <td>{{ $order->tanggal }}</td>
+                                <td>{{ $order->nama_pemesan }}</td>
+                                <td>{{ $order->alamat_pemesan }}</td>
+                                <td>{{ $order->no_hp }}</td>
+                                <td>{{ $order->email }}</td>
+                                <td>{{ $order->jumlah_pesanan }}</td>
+                                <td>{{ $order->deskripsi }}</td>
+                                <td>{{ $order->nama_produk }}</td>
+                                @if (Auth::user()->role == 'admin')
+                                    <td><a href="{{ url('admin/pesanan/edit/' . $order->id) }}"
+                                            class="btn btn-success">Edit</a></td>
+                                    <td><a href="{{ url('admin/pesanan/delete/' . $order->id) }}"
+                                            class="btn btn-danger">Delete</a></td>
+                                @endif
+                            </tr>
+                            @php
+                                $no++;
+                            @endphp
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
 </x-main>
