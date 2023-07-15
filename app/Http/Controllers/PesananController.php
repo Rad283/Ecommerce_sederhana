@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\DB;
 
 class PesananController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('cek_role:admin-manager')->only(['index']);
+    }
     /**
      * Display a listing of the resource.
      */
@@ -90,9 +96,13 @@ class PesananController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $id, Request $request)
     {
         DB::table('pesanan')->where('id', $id)->delete();
-        return redirect('admin/pesanan');
+        if ($request->user()->role == 'user') {
+            return redirect('user');
+        } else {
+            return redirect('admin/pesanan');
+        }
     }
 }
