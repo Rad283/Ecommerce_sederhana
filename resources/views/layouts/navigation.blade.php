@@ -15,6 +15,9 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('welcome')">
+                        {{ __('Landing Page') }}
+                    </x-nav-link>
                     @if (auth()->user()->role == 'admin')
                         <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.dashboard')">
                             {{ __('Dashboard Admin') }}
