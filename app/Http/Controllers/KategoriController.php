@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KategoriController extends Controller
 {
@@ -12,7 +13,8 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        $kategori = new kategori();
+        return view('admin.kategori.kategori', ['kategori' => $kategori->tampil()]);
     }
 
     /**
@@ -20,7 +22,8 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = kategori::all();
+        return view('admin.kategori.create', compact('kategori'));
     }
 
     /**
@@ -28,7 +31,14 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kategori = new kategori();
+        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->save();
+        if ($request->user()->role == 'user') {
+            return redirect('user');
+        } else {
+            return redirect('admin/kategori');
+        }
     }
 
     /**
@@ -58,8 +68,13 @@ class KategoriController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(kategori $kategori)
+    public function destroy(string $id, Request $request)
     {
-        //
+        DB::table('kategoris')->where('id', $id)->delete();
+        if ($request->user()->role == 'user') {
+            return redirect('user');
+        } else {
+            return redirect('admin/kategori');
+        }
     }
 }

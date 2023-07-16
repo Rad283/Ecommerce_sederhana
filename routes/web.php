@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KategoriController;
 use App\Models\Pesanan;
 use App\Models\produk;
 use App\Models\User;
@@ -67,5 +68,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/pesanan/edit/{id}', [PesananController::class, 'edit']);
         Route::post('/pesanan/update/{id}', [PesananController::class, 'update']);
         Route::get('/pesanan/delete/{id}', [PesananController::class, 'destroy']);
+        Route::get('/kategori', [KategoriController::class, 'index']);
+        Route::get('/kategori/create', [KategoriController::class, 'create']);
+        Route::post('/kategori/store', [KategoriController::class, 'store']);
+        Route::get('/kategori/delete/{id}', [KategoriController::class, 'destroy']);
     });
 });
