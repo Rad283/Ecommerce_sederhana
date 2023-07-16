@@ -18,7 +18,8 @@
                         class="fas fa-shopping-cart"></i><span>Pesanan</span></a>
                 <a class="nav-link" href="{{ url('admin/kategori') }}"><i
                         class="fas fa-table"></i><span>Kategori</span></a>
-                <a class="nav-link" href="#"><i class="fas fa-table"></i><span>Daftar User</span></a>
+                        {{-- canceled daftar user --}}
+                {{-- <a class="nav-link" href="#"><i class="fas fa-table"></i><span>Daftar User</span></a> --}}
             </li>
             <li class="nav-item"></li>
             <li class="nav-item">
