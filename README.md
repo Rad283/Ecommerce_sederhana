@@ -1,17 +1,21 @@
-Use `git status` to list all new or modified files that haven't yet been committed.
-
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-<center>
-    Jalankan beberapa command:
+
+Jalankan beberapa command:
+
+   `composer install`
     <br>
-   ` composer install`
+        `npm install`
+        <br>
+    `npm run dev` 
     <br>
-        `npm install` dan `npm run dev`
-    <br>
-    'php artisan storage:link'
-    <br>
-    jangan lupa untuk rename ".env.example" menjadi ".env" lalu import database dari folder database
-    <h2>Daftar akun</h2>
+    `php artisan storage:link`
+
+jangan lupa untuk rename ".env.example" menjadi ".env" lalu import database dari folder database.
+<br>
+
+ketik `php artisan serve` untuk menjalankan server
+
+ <h2>Daftar akun</h2>
 <table>
         <tr>
             <th>Email</th>
@@ -30,5 +34,4 @@ Use `git status` to list all new or modified files that haven't yet been committ
             <td>user1234</td>
         </tr>
     
- 
-</center>
+
